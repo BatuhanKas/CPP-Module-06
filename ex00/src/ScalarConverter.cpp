@@ -6,7 +6,7 @@
 /*   By: bkas <bkas@student.42kocaeli.com.tr>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/31 12:25:16 by bkas              #+#    #+#             */
-/*   Updated: 2024/07/31 14:18:20 by bkas             ###   ########.fr       */
+/*   Updated: 2024/07/31 16:26:17 by bkas             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,15 +34,6 @@ ScalarConverter::~ScalarConverter() {}
 /* *************************** [v] FIND TYPE [v] *************************** */
 
 bool ScalarConverter::isChar(const string &lit) {
-    if (lit.length() == 3) {
-        if ((lit[0] == '\'' && lit[2] == '\'') && (lit[1] != 32)) {
-            return true;
-        }
-    }
-    return false;
-}
-
-bool ScalarConverter::isInt(const string &lit) {
     size_t i = 0;
 
     if (lit[0] == '+' || lit[0] == '-') {
@@ -52,6 +43,22 @@ bool ScalarConverter::isInt(const string &lit) {
     for (; i < lit.length(); i++) {
         if (!isdigit(lit[i])) return false;
     }
+    // const char *str = lit.c_str();
+    // int num = atoi(str);
+    // char x = static_cast<int>(num);
+    // cout << "xval: " << x << endl;
+    return true;
+}
+
+bool ScalarConverter::isInt(const string &lit) {
+    size_t i = 0;
+
+    if (lit[0] == '+' || lit[0] == '-') {
+        if (lit.length() == 1) return false;
+        i = 1;
+    }
+    for (; i < lit.length(); i++)
+        if (!isdigit(lit[i])) return false;
     return true;
 }
 
@@ -60,8 +67,8 @@ bool ScalarConverter::isInt(const string &lit) {
 /* ************************ [v] CONVERT FUNCTION [v] ************************ */
 
 void ScalarConverter::convert(string lit) {
-    cout << isChar(lit) << endl;
-    cout << isInt(lit) << endl;
+    cout << "char: " << isChar(lit) << endl;
+    cout << "int: " << isInt(lit) << endl;
 }
 
 /* ************************ [^] CONVERT FUNCTION [^] ************************ */

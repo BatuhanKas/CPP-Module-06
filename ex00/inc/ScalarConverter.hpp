@@ -6,7 +6,7 @@
 /*   By: bkas <bkas@student.42kocaeli.com.tr>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/31 12:22:35 by bkas              #+#    #+#             */
-/*   Updated: 2024/07/31 13:57:38 by bkas             ###   ########.fr       */
+/*   Updated: 2024/07/31 15:20:03 by bkas             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,8 +40,8 @@ class ScalarConverter {
     /* ************* [^] Orthodox Form [^] ************* */
 
     /* ********* [v] Find Type [v] ********* */
-    static bool isChar(const string& lit);
-    static bool isInt(const string& lit);
+    static bool isChar(const string &lit);
+    static bool isInt(const string &lit);
     /* ********* [^] Find Type [^] ********* */
 
    public:
