@@ -6,7 +6,7 @@
 #    By: bkas <bkas@student.42kocaeli.com.tr>       +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/05/10 16:55:08 by bkas              #+#    #+#              #
-#    Updated: 2024/07/31 17:02:04 by bkas             ###   ########.fr        #
+#    Updated: 2024/08/03 17:19:46 by bkas             ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -14,7 +14,7 @@ NAME        = cast
 
 PROJECTNAME = Casting
 
-SRC         = main.cpp ScalarConverter.cpp
+SRC         = main.cpp ScalarConverter.cpp FindType.cpp Print.cpp
 
 SRCDIR      = ./src/
 

@@ -6,7 +6,7 @@
 /*   By: bkas <bkas@student.42kocaeli.com.tr>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/31 12:25:16 by bkas              #+#    #+#             */
-/*   Updated: 2024/07/31 18:17:12 by bkas             ###   ########.fr       */
+/*   Updated: 2024/08/03 18:38:46 by bkas             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,16 +33,18 @@ ScalarConverter::~ScalarConverter() {}
 
 /* *************************** [v] FIND TYPE [v] *************************** */
 
+bool ScalarConverter::isOneChar(const string &lit) {
+    return (lit.length() == 1 && isprint(lit[0]) && !isdigit(lit[0])) ? true
+                                                                      : false;
+}
+
 bool ScalarConverter::isChar(const string &lit) {
     size_t i = 0;
 
-    if (lit[0] == '+' || lit[0] == '-') {
-        if (lit.length() == 1) return false;
-        i = 1;
-    }
-    for (; i < lit.length(); i++) {
+    if (lit[0] == '+' || lit[0] == '-') i++;
+
+    for (; i < lit.length(); i++)
         if (!isdigit(lit[i])) return false;
-    }
     return true;
 }
 
@@ -60,46 +62,54 @@ bool ScalarConverter::isInt(const string &lit) {
 
 /* *************************** [^] FIND TYPE [^] *************************** */
 
-/* *************************** [v] PRINT TYPE [v] *************************** */
-
-void ScalarConverter::printChar(const string lit) {
-    cout << "char: ";
-    const char *str = lit.c_str();
-    int num = atoi(str);
-    if (num < 0) {
-        cout << "Impossible to print" << endl;
-        return;
-    }
-    char x = static_cast<int>(num);
-    if (x >= 32 && x <= 126)
-        cout << "\"" << x << "\"" << endl;
-    else if ((x >= 0 && x <= 31) || (x == 127))
-        cout << "Not printable" << endl;
-    else
-        cout << "Impossible to print" << endl;
-}
-
-void ScalarConverter::printInt(const string lit) {
-    cout << "int: ";
-    const char *str = lit.c_str();
-    int num = atoi(str);
-    cout << num << endl;
-}
-
 /* *************************** [^] PRINT TYPE [^] *************************** */
+
+/* ************************ [v] CASTING TO TYPES [v] ************************ */
+
+void ScalarConverter::castChar(eType type, const string lit) {
+    char c = 0;
+    if (type == ONECHAR)
+        c = static_cast<char>(lit[0]);
+    else if (type == CHAR) {
+        int x = atoi(lit.c_str());
+        cout << "xvaL: " << x << endl;
+        c = static_cast<char>(x);
+        cout << "cvaL: " << c << endl;
+    }
+    int i = static_cast<int>(c);
+    cout << "ivaL: " << i << endl;
+    printChar(c);
+    printInt(i);
+}
+
+/* ************************ [^] CASTING TO TYPES [^] ************************ */
 
 /* ************************ [v] CONVERT FUNCTION [v] ************************ */
 
 void ScalarConverter::convert(const string &lit) {
-    // bool _char = isChar(lit);
-    // bool _int = isInt(lit);
+    eType type = ScalarConverter::findType(lit);
 
-    try {
-        if (isChar(lit)) printChar(lit);
-        if (isInt(lit)) printInt(lit);
-    } catch (exception &e) {
-        cerr << e.what() << endl;
+    switch (type) {
+        case ONECHAR:
+            castChar(type, lit);
+            break;
+        case CHAR:
+            castChar(type, lit);
+            break;
+        // case INT:
+        //     castInt(type, lit);
+        //     break;
+        default:
+            break;
     }
 }
 
 /* ************************ [^] CONVERT FUNCTION [^] ************************ */
+
+/* *********************** [v] PRINT ERROR CLASS [v] *********************** */
+
+const char *ScalarConverter::PrintError::what() const throw() {
+    return "Error: Not printable or Convertable Value.";
+}
+
+/* *********************** [^] PRINT ERROR CLASS [^] *********************** */

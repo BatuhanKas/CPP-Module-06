@@ -6,7 +6,7 @@
 /*   By: bkas <bkas@student.42kocaeli.com.tr>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/31 12:22:35 by bkas              #+#    #+#             */
-/*   Updated: 2024/07/31 17:32:29 by bkas             ###   ########.fr       */
+/*   Updated: 2024/08/03 17:19:20 by bkas             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,8 @@
 
 /* **************************** [v] INCLUDES [v] **************************** */
 
+#include <limits.h>
+
 #include <iostream>
 #include <string>
 
@@ -29,6 +31,12 @@ using std::exception;
 using std::string;
 
 /* **************************** [^] INCLUDES [^] **************************** */
+
+/* ************************ [v] TYPE ENUMERATION [v] ************************ */
+
+enum eType { CHAR, ONECHAR, INT, FLOAT, DOUBLE, ERROR };
+
+/* ************************ [^] TYPE ENUMERATION [^] ************************ */
 
 /* ********************* [v] SCALAR CONVERTER CLASS [v] ********************* */
 
@@ -44,14 +52,33 @@ class ScalarConverter {
     // lit means literal
 
     /* ********* [v] Find Type [v] ********* */
-    static bool isChar(const string &lit);
-    static bool isInt(const string &lit);
+    static eType findType(const string lit);
     /* ********* [^] Find Type [^] ********* */
 
-    /* ******** [v] Print Type [v] ******** */
-    static void printChar(const string lit);
-    static void printInt(const string lit);
-    /* ******** [^] Print Type [^] ******** */
+    /* ****** [v] Casting to Types [v] ****** */
+    static void castChar(eType type, const string lit);
+    static void castInt(eType type, const string lit);
+    /* ****** [^] Casting to Types [^] ****** */
+
+    /* ********* [v] Types [v] ********* */
+    static bool isChar(const string &lit);
+    static bool isOneChar(const string &lit);
+    static bool isInt(const string &lit);
+    /* ********* [^] Types [^] ********* */
+
+    /* ******** [v] Print Types [v] ******** */
+    static void printTypes();
+    static void printChar(char c);
+    // static void printOneChar(const string lit);
+    static void printInt(int i);
+    /* ******** [^] Print Types [^] ******** */
+
+    /* ******* [v] Error Class [v] ******* */
+    class PrintError : public exception {
+       public:
+        virtual const char *what() const throw();
+    };
+    /* ******* [^] Error Class [^] ******* */
 
    public:
     /* **** [v] Convert Function [v] **** */
