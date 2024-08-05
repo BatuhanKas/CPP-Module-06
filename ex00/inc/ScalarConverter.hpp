@@ -6,7 +6,7 @@
 /*   By: bkas <bkas@student.42kocaeli.com.tr>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/31 12:22:35 by bkas              #+#    #+#             */
-/*   Updated: 2024/08/05 17:17:04 by bkas             ###   ########.fr       */
+/*   Updated: 2024/08/05 18:13:21 by bkas             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,9 +19,9 @@
 
 /* **************************** [v] INCLUDES [v] **************************** */
 
-#include <float.h>
 #include <limits.h>
 
+#include <cfloat>
 #include <iomanip>
 #include <iostream>
 #include <string>

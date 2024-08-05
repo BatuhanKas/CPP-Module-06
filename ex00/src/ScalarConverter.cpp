@@ -6,7 +6,7 @@
 /*   By: bkas <bkas@student.42kocaeli.com.tr>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/31 12:25:16 by bkas              #+#    #+#             */
-/*   Updated: 2024/08/05 16:53:29 by bkas             ###   ########.fr       */
+/*   Updated: 2024/08/05 18:04:58 by bkas             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,9 +44,9 @@ bool ScalarConverter::isInt(const string &lit) {
 
     for (; i < lit.length(); i++)
         if (!isdigit(lit[i])) return false;
-
-    double d = atoll(lit.c_str());
-    return d < INT_MIN || d > INT_MAX ? false : true;
+    return true;
+    // double d = atoll(lit.c_str());
+    // return d < INT_MIN || d > INT_MAX ? false : true;
 }
 
 bool ScalarConverter::isFloat(const string &lit) {
