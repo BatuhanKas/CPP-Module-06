@@ -6,7 +6,7 @@
 /*   By: bkas <bkas@student.42kocaeli.com.tr>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/03 11:49:50 by bkas              #+#    #+#             */
-/*   Updated: 2024/08/03 15:39:52 by bkas             ###   ########.fr       */
+/*   Updated: 2024/08/05 11:06:45 by bkas             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,11 +17,12 @@
 /* **************************** [^] INCLUDES [^] **************************** */
 
 eType ScalarConverter::findType(const string lit) {
-    if (isOneChar(lit))
-        return ONECHAR;
-    else if (isChar(lit))
+    if (isChar(lit))
         return CHAR;
-    return ERROR;
+    else if (isInt(lit))
+        return INT;
+    else
+        return ERROR;
     // return DOUBLE;
     // return ONECHAR;
 }

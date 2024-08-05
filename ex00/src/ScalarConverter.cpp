@@ -6,7 +6,7 @@
 /*   By: bkas <bkas@student.42kocaeli.com.tr>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/31 12:25:16 by bkas              #+#    #+#             */
-/*   Updated: 2024/08/03 18:38:46 by bkas             ###   ########.fr       */
+/*   Updated: 2024/08/05 11:55:37 by bkas             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,28 +33,16 @@ ScalarConverter::~ScalarConverter() {}
 
 /* *************************** [v] FIND TYPE [v] *************************** */
 
-bool ScalarConverter::isOneChar(const string &lit) {
+bool ScalarConverter::isChar(const string &lit) {
     return (lit.length() == 1 && isprint(lit[0]) && !isdigit(lit[0])) ? true
                                                                       : false;
-}
-
-bool ScalarConverter::isChar(const string &lit) {
-    size_t i = 0;
-
-    if (lit[0] == '+' || lit[0] == '-') i++;
-
-    for (; i < lit.length(); i++)
-        if (!isdigit(lit[i])) return false;
-    return true;
 }
 
 bool ScalarConverter::isInt(const string &lit) {
     size_t i = 0;
 
-    if (lit[0] == '+' || lit[0] == '-') {
-        if (lit.length() == 1) return false;
-        i = 1;
-    }
+    if (lit[0] == '+' || lit[0] == '-') i++;
+
     for (; i < lit.length(); i++)
         if (!isdigit(lit[i])) return false;
     return true;
@@ -67,19 +55,22 @@ bool ScalarConverter::isInt(const string &lit) {
 /* ************************ [v] CASTING TO TYPES [v] ************************ */
 
 void ScalarConverter::castChar(eType type, const string lit) {
-    char c = 0;
-    if (type == ONECHAR)
-        c = static_cast<char>(lit[0]);
-    else if (type == CHAR) {
-        int x = atoi(lit.c_str());
-        cout << "xvaL: " << x << endl;
-        c = static_cast<char>(x);
-        cout << "cvaL: " << c << endl;
-    }
+    char c = static_cast<char>(lit[0]);
     int i = static_cast<int>(c);
-    cout << "ivaL: " << i << endl;
-    printChar(c);
-    printInt(i);
+    float f = static_cast<float>(c);
+    double d = static_cast<double>(c);
+    ScalarConverter::printTypes(type, c, i, f, d);
+}
+
+void ScalarConverter::castInt(eType type, const string lit) {
+    char c = -1;
+    int i = atoi(lit.c_str());
+    if (i >= 0 && i <= CHAR_MAX) {
+        c = static_cast<char>(i);
+    }
+    float f = static_cast<float>(i);
+    double d = static_cast<double>(i);
+    ScalarConverter::printTypes(type, c, i, f, d);
 }
 
 /* ************************ [^] CASTING TO TYPES [^] ************************ */
@@ -90,15 +81,12 @@ void ScalarConverter::convert(const string &lit) {
     eType type = ScalarConverter::findType(lit);
 
     switch (type) {
-        case ONECHAR:
-            castChar(type, lit);
-            break;
         case CHAR:
             castChar(type, lit);
             break;
-        // case INT:
-        //     castInt(type, lit);
-        //     break;
+        case INT:
+            castInt(type, lit);
+            break;
         default:
             break;
     }

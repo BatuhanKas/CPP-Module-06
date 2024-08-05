@@ -6,7 +6,7 @@
 /*   By: bkas <bkas@student.42kocaeli.com.tr>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/03 17:16:02 by bkas              #+#    #+#             */
-/*   Updated: 2024/08/03 17:26:40 by bkas             ###   ########.fr       */
+/*   Updated: 2024/08/05 11:49:02 by bkas             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,11 +16,20 @@
 
 /* **************************** [^] INCLUDES [^] **************************** */
 
+void ScalarConverter::printTypes(eType type, char c, int i, float f, double d) {
+    (void)f;
+    (void)d;
+    printChar(type, c);
+    printInt(type, i);
+    // printFloat(type, f);
+    // printDouble(type, d);
+}
+
 /* *************************** [v] CHAR TYPE [v] *************************** */
 
-void ScalarConverter::printChar(char c) {
+void ScalarConverter::printChar(eType type, char c) {
     cout << "char: ";
-    if (c <= 0 || c >= CHAR_MAX) {
+    if (type == SPECIAL || c <= 0 || c > CHAR_MAX) {
         cout << "Impossible to print" << endl;
         return;
     }
@@ -32,11 +41,9 @@ void ScalarConverter::printChar(char c) {
 
 /* **************************** [v] INT TYPE [v] **************************** */
 
-void ScalarConverter::printInt(int i) {
+void ScalarConverter::printInt(eType type, int i) {
     cout << "int: ";
-    // const char *str = lit.c_str();
-    // int num = atoi(str);
-    if (i >= INT_MIN && i <= INT_MAX)
+    if (type != SPECIAL && i >= INT_MIN && i <= INT_MAX)
         cout << i << endl;
     else
         cout << "Impossible to Convert" << endl;

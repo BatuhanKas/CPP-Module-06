@@ -6,7 +6,7 @@
 /*   By: bkas <bkas@student.42kocaeli.com.tr>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/31 12:22:35 by bkas              #+#    #+#             */
-/*   Updated: 2024/08/03 17:19:20 by bkas             ###   ########.fr       */
+/*   Updated: 2024/08/05 11:28:08 by bkas             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,7 +34,7 @@ using std::string;
 
 /* ************************ [v] TYPE ENUMERATION [v] ************************ */
 
-enum eType { CHAR, ONECHAR, INT, FLOAT, DOUBLE, ERROR };
+enum eType { CHAR, INT, FLOAT, DOUBLE, SPECIAL, ERROR };
 
 /* ************************ [^] TYPE ENUMERATION [^] ************************ */
 
@@ -62,15 +62,13 @@ class ScalarConverter {
 
     /* ********* [v] Types [v] ********* */
     static bool isChar(const string &lit);
-    static bool isOneChar(const string &lit);
     static bool isInt(const string &lit);
     /* ********* [^] Types [^] ********* */
 
     /* ******** [v] Print Types [v] ******** */
-    static void printTypes();
-    static void printChar(char c);
-    // static void printOneChar(const string lit);
-    static void printInt(int i);
+    static void printTypes(eType type, char c, int i, float f, double d);
+    static void printChar(eType type, char c);
+    static void printInt(eType type, int i);
     /* ******** [^] Print Types [^] ******** */
 
     /* ******* [v] Error Class [v] ******* */
