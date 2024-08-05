@@ -6,7 +6,7 @@
 /*   By: bkas <bkas@student.42kocaeli.com.tr>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/31 12:25:16 by bkas              #+#    #+#             */
-/*   Updated: 2024/08/05 12:29:01 by bkas             ###   ########.fr       */
+/*   Updated: 2024/08/05 15:38:57 by bkas             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,13 +46,11 @@ bool ScalarConverter::isInt(const string &lit) {
     for (; i < lit.length(); i++)
         if (!isdigit(lit[i])) return false;
 
-    long l = atol()
-    return true;
+    double d = atoll(lit.c_str());
+    return d < INT_MIN || d > INT_MAX ? false : true;
 }
 
 /* *************************** [^] FIND TYPE [^] *************************** */
-
-/* *************************** [^] PRINT TYPE [^] *************************** */
 
 /* ************************ [v] CASTING TO TYPES [v] ************************ */
 
@@ -71,7 +69,6 @@ void ScalarConverter::castInt(eType type, const string lit) {
         c = static_cast<char>(i);
     }
     float f = static_cast<float>(i);
-    cout << "float value: " << f << endl;
     double d = static_cast<double>(i);
     ScalarConverter::printTypes(type, c, i, f, d);
 }
@@ -91,6 +88,7 @@ void ScalarConverter::convert(const string &lit) {
             castInt(type, lit);
             break;
         default:
+            cout << "Not printable or Convertable Value." << endl;
             break;
     }
 }

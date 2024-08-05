@@ -6,7 +6,7 @@
 /*   By: bkas <bkas@student.42kocaeli.com.tr>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/31 12:22:35 by bkas              #+#    #+#             */
-/*   Updated: 2024/08/05 12:03:22 by bkas             ###   ########.fr       */
+/*   Updated: 2024/08/05 15:37:44 by bkas             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,6 +21,7 @@
 
 #include <limits.h>
 
+#include <iomanip>
 #include <iostream>
 #include <string>
 
@@ -28,6 +29,8 @@ using std::cerr;
 using std::cout;
 using std::endl;
 using std::exception;
+using std::fixed;
+using std::setprecision;
 using std::string;
 
 /* **************************** [^] INCLUDES [^] **************************** */
@@ -70,6 +73,7 @@ class ScalarConverter {
     static void printChar(eType type, char c);
     static void printInt(eType type, int i);
     static void printFloat(eType type, float f);
+    static void printDouble(eType type, double d);
     /* ******** [^] Print Types [^] ******** */
 
     /* ******* [v] Error Class [v] ******* */
