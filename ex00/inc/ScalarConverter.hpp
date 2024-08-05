@@ -6,7 +6,7 @@
 /*   By: bkas <bkas@student.42kocaeli.com.tr>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/31 12:22:35 by bkas              #+#    #+#             */
-/*   Updated: 2024/08/05 15:37:44 by bkas             ###   ########.fr       */
+/*   Updated: 2024/08/05 17:17:04 by bkas             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,7 @@
 
 /* **************************** [v] INCLUDES [v] **************************** */
 
+#include <float.h>
 #include <limits.h>
 
 #include <iomanip>
@@ -61,19 +62,22 @@ class ScalarConverter {
     /* ****** [v] Casting to Types [v] ****** */
     static void castChar(eType type, const string lit);
     static void castInt(eType type, const string lit);
+    static void castFloat(eType type, const string lit);
     /* ****** [^] Casting to Types [^] ****** */
 
     /* ********* [v] Types [v] ********* */
     static bool isChar(const string &lit);
     static bool isInt(const string &lit);
+    static bool isFloat(const string &lit);
     /* ********* [^] Types [^] ********* */
 
     /* ******** [v] Print Types [v] ******** */
-    static void printTypes(eType type, char c, int i, float f, double d);
-    static void printChar(eType type, char c);
-    static void printInt(eType type, int i);
-    static void printFloat(eType type, float f);
-    static void printDouble(eType type, double d);
+    static void printTypes(eType type, char c, int i, float f, double d,
+                           string lit);
+    static void printChar(eType type, char c, string lit);
+    static void printInt(eType type, int i, string lit);
+    static void printFloat(eType type, float f, string lit);
+    static void printDouble(eType type, double d, string lit);
     /* ******** [^] Print Types [^] ******** */
 
     /* ******* [v] Error Class [v] ******* */

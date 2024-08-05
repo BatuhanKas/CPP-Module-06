@@ -6,7 +6,7 @@
 /*   By: bkas <bkas@student.42kocaeli.com.tr>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/03 17:16:02 by bkas              #+#    #+#             */
-/*   Updated: 2024/08/05 15:37:06 by bkas             ###   ########.fr       */
+/*   Updated: 2024/08/05 17:26:59 by bkas             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,21 +18,23 @@
 
 /* ************************** [v] PRINT TYPES [v] ************************** */
 
-void ScalarConverter::printTypes(eType type, char c, int i, float f, double d) {
-    (void)d;
-    printChar(type, c);
-    printInt(type, i);
-    printFloat(type, f);
-    printDouble(type, d);
+void ScalarConverter::printTypes(eType type, char c, int i, float f, double d,
+                                 string lit) {
+    printChar(type, c, lit);
+    printInt(type, i, lit);
+    printFloat(type, f, lit);
+    printDouble(type, d, lit);
 }
 
 /* ************************** [^] PRINT TYPES [^] ************************** */
 
 /* *************************** [v] CHAR TYPE [v] *************************** */
 
-void ScalarConverter::printChar(eType type, char c) {
+void ScalarConverter::printChar(eType type, char c, string lit) {
     cout << "char: ";
-    if (type == SPECIAL || c <= 0 || c > CHAR_MAX) {
+
+    int i = atoi(lit.c_str());
+    if (type == SPECIAL || i <= 0 || i > CHAR_MAX) {
         cout << "Impossible to print" << endl;
         return;
     }
@@ -44,9 +46,11 @@ void ScalarConverter::printChar(eType type, char c) {
 
 /* **************************** [v] INT TYPE [v] **************************** */
 
-void ScalarConverter::printInt(eType type, int i) {
+void ScalarConverter::printInt(eType type, int i, string lit) {
     cout << "int: ";
-    if (type != SPECIAL && i >= INT_MIN && i <= INT_MAX)
+
+    float f = atof(lit.c_str());
+    if (type != SPECIAL && f >= INT_MIN && f <= INT_MAX)
         cout << i << endl;
     else
         cout << "Impossible to Convert" << endl;
@@ -56,18 +60,24 @@ void ScalarConverter::printInt(eType type, int i) {
 
 /* *************************** [v] FLOAT TYPE [v] *************************** */
 
-void ScalarConverter::printFloat(eType type, float f) {
+void ScalarConverter::printFloat(eType type, float f, string lit) {
     (void)type;
     cout << "float: ";
-    cout << fixed << setprecision(1) << f << "f" << endl;
+
+    double d = atoll(lit.c_str());
+    if (type != SPECIAL && d <= FLT_MIN && d >= FLT_MAX)
+        cout << "Impossible to Convert" << endl;
+    else
+        cout << fixed << setprecision(1) << f << "f" << endl;
 }
 
 /* *************************** [^] FLOAT TYPE [^] *************************** */
 
 /* ************************** [v] DOUBLE TYPE [v] ************************** */
 
-void ScalarConverter::printDouble(eType type, double d) {
+void ScalarConverter::printDouble(eType type, double d, string lit) {
     (void)type;
+    (void)lit;
     cout << "double: ";
     cout << fixed << setprecision(1) << d << endl;
 }
