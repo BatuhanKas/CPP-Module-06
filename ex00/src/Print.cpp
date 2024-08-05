@@ -6,7 +6,7 @@
 /*   By: bkas <bkas@student.42kocaeli.com.tr>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/03 17:16:02 by bkas              #+#    #+#             */
-/*   Updated: 2024/08/05 11:49:02 by bkas             ###   ########.fr       */
+/*   Updated: 2024/08/05 12:02:47 by bkas             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,14 +16,18 @@
 
 /* **************************** [^] INCLUDES [^] **************************** */
 
+/* ************************** [v] PRINT TYPES [v] ************************** */
+
 void ScalarConverter::printTypes(eType type, char c, int i, float f, double d) {
     (void)f;
     (void)d;
     printChar(type, c);
     printInt(type, i);
-    // printFloat(type, f);
+    printFloat(type, f);
     // printDouble(type, d);
 }
+
+/* ************************** [^] PRINT TYPES [^] ************************** */
 
 /* *************************** [v] CHAR TYPE [v] *************************** */
 
@@ -50,3 +54,12 @@ void ScalarConverter::printInt(eType type, int i) {
 }
 
 /* **************************** [^] INT TYPE [^] **************************** */
+
+/* *************************** [v] FLOAT TYPE [v] *************************** */
+
+void ScalarConverter::printFloat(eType type, float f) {
+    (void)type;
+    cout << "float: " << f << endl;;
+}
+
+/* *************************** [^] FLOAT TYPE [^] *************************** */

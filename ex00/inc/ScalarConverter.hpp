@@ -6,7 +6,7 @@
 /*   By: bkas <bkas@student.42kocaeli.com.tr>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/31 12:22:35 by bkas              #+#    #+#             */
-/*   Updated: 2024/08/05 11:28:08 by bkas             ###   ########.fr       */
+/*   Updated: 2024/08/05 12:03:22 by bkas             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -69,6 +69,7 @@ class ScalarConverter {
     static void printTypes(eType type, char c, int i, float f, double d);
     static void printChar(eType type, char c);
     static void printInt(eType type, int i);
+    static void printFloat(eType type, float f);
     /* ******** [^] Print Types [^] ******** */
 
     /* ******* [v] Error Class [v] ******* */
