@@ -6,7 +6,7 @@
 /*   By: bkas <bkas@student.42kocaeli.com.tr>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/03 17:16:02 by bkas              #+#    #+#             */
-/*   Updated: 2024/08/05 18:14:26 by bkas             ###   ########.fr       */
+/*   Updated: 2024/08/06 12:05:11 by bkas             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,7 +34,7 @@ void ScalarConverter::printChar(eType type, char c, string lit) {
     cout << "char: ";
 
     int i = atoi(lit.c_str());
-    if (type == SPECIAL || i <= 0 || i > CHAR_MAX) {
+    if (type == SCIENCE || i <= 0 || i > CHAR_MAX) {
         cout << "impossible" << endl;
         return;
     }
@@ -49,8 +49,8 @@ void ScalarConverter::printChar(eType type, char c, string lit) {
 void ScalarConverter::printInt(eType type, int i, string lit) {
     cout << "int: ";
 
-    float f = atof(lit.c_str());
-    if (type != SPECIAL && f >= INT_MIN && f <= INT_MAX)
+    double d = atof(lit.c_str());
+    if (type != SCIENCE && (d >= INT_MIN && d <= INT_MAX))
         cout << i << endl;
     else
         cout << "impossible" << endl;
@@ -61,13 +61,16 @@ void ScalarConverter::printInt(eType type, int i, string lit) {
 /* *************************** [v] FLOAT TYPE [v] *************************** */
 
 void ScalarConverter::printFloat(eType type, float f, string lit) {
-    (void)type;
-    (void)lit;
     cout << "float: ";
 
-    double d = atoi(lit.c_str());
-    if (d >= -FLT_MAX && d <= FLT_MAX && d >= FLT_MIN && d <= -FLT_MIN)
-        cout << fixed << setprecision(1) << f << "f" << endl;
+    double d = atof(lit.c_str());
+    if (type != SCIENCE && d >= -DBL_MAX && d <= DBL_MAX)
+        if (d >= INT_MIN && d <= INT_MAX) {
+            cout << fixed << setprecision(1) << f << "f" << endl;
+        } else {
+            f = static_cast<float>(d);
+            cout << fixed << setprecision(1) << f << "f" << endl;
+        }
     else
         cout << "impossible" << endl;
 }
@@ -77,10 +80,17 @@ void ScalarConverter::printFloat(eType type, float f, string lit) {
 /* ************************** [v] DOUBLE TYPE [v] ************************** */
 
 void ScalarConverter::printDouble(eType type, double d, string lit) {
-    (void)type;
-    (void)lit;
     cout << "double: ";
-    cout << fixed << setprecision(1) << d << endl;
+    double dbl = atof(lit.c_str());
+    if (type != SCIENCE && dbl >= -DBL_MAX && dbl <= DBL_MAX)
+        if (dbl >= INT_MIN && dbl <= INT_MAX)
+            cout << fixed << setprecision(1) << d << endl;
+        else {
+            d = static_cast<double>(dbl);
+            cout << fixed << setprecision(1) << d << endl;
+        }
+    else
+        cout << "impossible" << endl;
 }
 
 /* ************************** [^] DOUBLE TYPE [^] ************************** */

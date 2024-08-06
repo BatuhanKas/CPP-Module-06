@@ -6,7 +6,7 @@
 /*   By: bkas <bkas@student.42kocaeli.com.tr>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/31 12:22:35 by bkas              #+#    #+#             */
-/*   Updated: 2024/08/05 18:13:21 by bkas             ###   ########.fr       */
+/*   Updated: 2024/08/06 11:22:12 by bkas             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,7 +38,7 @@ using std::string;
 
 /* ************************ [v] TYPE ENUMERATION [v] ************************ */
 
-enum eType { CHAR, INT, FLOAT, DOUBLE, SPECIAL, ERROR };
+enum eType { CHAR, INT, FLOAT, DOUBLE, SCIENCE, ERROR };
 
 /* ************************ [^] TYPE ENUMERATION [^] ************************ */
 
@@ -63,12 +63,14 @@ class ScalarConverter {
     static void castChar(eType type, const string lit);
     static void castInt(eType type, const string lit);
     static void castFloat(eType type, const string lit);
+    static void castDouble(eType type, const string lit);
     /* ****** [^] Casting to Types [^] ****** */
 
     /* ********* [v] Types [v] ********* */
     static bool isChar(const string &lit);
     static bool isInt(const string &lit);
     static bool isFloat(const string &lit);
+    static bool isDouble(const string &lit);
     /* ********* [^] Types [^] ********* */
 
     /* ******** [v] Print Types [v] ******** */
@@ -79,13 +81,6 @@ class ScalarConverter {
     static void printFloat(eType type, float f, string lit);
     static void printDouble(eType type, double d, string lit);
     /* ******** [^] Print Types [^] ******** */
-
-    /* ******* [v] Error Class [v] ******* */
-    class PrintError : public exception {
-       public:
-        virtual const char *what() const throw();
-    };
-    /* ******* [^] Error Class [^] ******* */
 
    public:
     /* **** [v] Convert Function [v] **** */
