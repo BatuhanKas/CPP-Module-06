@@ -6,7 +6,7 @@
 /*   By: bkas <bkas@student.42kocaeli.com.tr>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/03 17:16:02 by bkas              #+#    #+#             */
-/*   Updated: 2024/08/06 16:38:15 by bkas             ###   ########.fr       */
+/*   Updated: 2024/08/06 17:01:14 by bkas             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,18 +15,6 @@
 #include "../inc/ScalarConverter.hpp"
 
 /* **************************** [^] INCLUDES [^] **************************** */
-
-/* ************************** [v] PRINT TYPES [v] ************************** */
-
-void ScalarConverter::printTypes(eType type, char c, int i, float f, double d,
-                                 string lit) {
-    printChar(type, c, lit);
-    printInt(type, i, lit);
-    printFloat(type, f, lit);
-    printDouble(type, d, lit);
-}
-
-/* ************************** [^] PRINT TYPES [^] ************************** */
 
 /* *************************** [v] CHAR TYPE [v] *************************** */
 
@@ -137,3 +125,15 @@ void ScalarConverter::printPseudoLiterals(eType type, string lit) {
 }
 
 /* ************************ [^] PSEUDO LITERALS [^] ************************ */
+
+/* ************************** [v] PRINT TYPES [v] ************************** */
+
+void ScalarConverter::printTypes(eType type, char c, int i, float f, double d,
+                                 string lit) {
+    printChar(type, c, lit);
+    printInt(type, i, lit);
+    printFloat(type, f, lit);
+    printDouble(type, d, lit);
+}
+
+/* ************************** [^] PRINT TYPES [^] ************************** */

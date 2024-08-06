@@ -6,7 +6,7 @@
 /*   By: bkas <bkas@student.42kocaeli.com.tr>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/31 12:25:16 by bkas              #+#    #+#             */
-/*   Updated: 2024/08/06 15:52:43 by bkas             ###   ########.fr       */
+/*   Updated: 2024/08/06 17:19:00 by bkas             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,65 +30,6 @@ ScalarConverter &ScalarConverter::operator=(const ScalarConverter &oth) {
 ScalarConverter::~ScalarConverter() {}
 
 /* ************************* [^] ORTHODOX FORM [^] ************************* */
-
-/* *************************** [v] FIND TYPE [v] *************************** */
-
-bool ScalarConverter::isChar(const string &lit) {
-    return (lit.length() == 1 && isprint(lit[0]) && !isdigit(lit[0])) ? true
-                                                                      : false;
-}
-
-bool ScalarConverter::isInt(const string &lit) {
-    size_t i = 0;
-    if (lit[0] == '+' || lit[0] == '-') i++;
-
-    for (; i < lit.length(); i++)
-        if (!isdigit(lit[i])) return false;
-    return true;
-}
-
-bool ScalarConverter::isFloat(const string &lit) {
-    size_t i = 0;
-
-    if (lit[0] == '+' || lit[0] == '-') i++;
-
-    for (; i < lit.length(); i++) {
-        if (!isdigit(lit[i]) && lit[i] == '.') {
-            i++;
-            while (isdigit(lit[i])) i++;
-            if (lit[i] == 'f' && lit[i + 1] == lit[lit.length()]) return true;
-        }
-    }
-    return false;
-}
-
-bool ScalarConverter::isDouble(const string &lit) {
-    size_t i = 0;
-
-    if (lit[0] == '+' || lit[0] == '-') i++;
-
-    for (; i < lit.length(); i++) {
-        if (!isdigit(lit[i]) && lit[i] == '.') {
-            i++;
-            while (isdigit(lit[i])) i++;
-            if (lit[i] == lit[lit.length()]) return true;
-        }
-    }
-    return false;
-}
-
-bool ScalarConverter::isPseudoLiterals(const string &lit) {
-    string arr[] = {"-inf", "-inff", "+inf", "+inff", "inf",   "inff",
-                    "nan",  "+nan",  "-nan", "+nanf", "-nanf", "nanf"};
-
-    size_t arrSize = sizeof(arr) / sizeof(arr[0]);
-
-    for (size_t i = 0; i < arrSize; i++)
-        if (!lit.compare(arr[i])) return true;
-    return false;
-}
-
-/* *************************** [^] FIND TYPE [^] *************************** */
 
 /* *********************** [v] CASTING TO TYPES [v] ************************ */
 

@@ -6,7 +6,7 @@
 /*   By: bkas <bkas@student.42kocaeli.com.tr>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/31 12:22:35 by bkas              #+#    #+#             */
-/*   Updated: 2024/08/06 16:39:08 by bkas             ###   ########.fr       */
+/*   Updated: 2024/08/06 16:58:04 by bkas             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,17 +53,17 @@ class ScalarConverter {
 
     // lit means literal
 
-    /* *************** [v] Find Type [v] *************** */
+    /* *************** [v] Find Type Function [v] *************** */
     static eType findType(const string lit);
-    /* *************** [^] Find Type [^] *************** */
+    /* *************** [^] Find Type Function [^] *************** */
 
-    /* ***************** [v] Types [v] ***************** */
+    /* ***************** [v] Finding Types [v] ***************** */
     static bool isChar(const string &lit);
     static bool isInt(const string &lit);
     static bool isFloat(const string &lit);
     static bool isDouble(const string &lit);
     static bool isPseudoLiterals(const string &lit);
-    /* ***************** [^] Types [^] ***************** */
+    /* ***************** [^] Finding Types [^] ***************** */
 
     /* ************ [v] Casting to Types [v] ************ */
     static void castChar(eType type, const string lit);

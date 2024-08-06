@@ -6,7 +6,7 @@
 /*   By: bkas <bkas@student.42kocaeli.com.tr>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/03 11:49:50 by bkas              #+#    #+#             */
-/*   Updated: 2024/08/06 14:07:59 by bkas             ###   ########.fr       */
+/*   Updated: 2024/08/06 16:58:20 by bkas             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,83 @@
 #include "../inc/ScalarConverter.hpp"
 
 /* **************************** [^] INCLUDES [^] **************************** */
+
+/* **************************** [v] IS CHAR [v] **************************** */
+
+bool ScalarConverter::isChar(const string &lit) {
+    return (lit.length() == 1 && isprint(lit[0]) && !isdigit(lit[0])) ? true
+                                                                      : false;
+}
+
+/* **************************** [^] IS CHAR [^] **************************** */
+
+/* ***************************** [v] IS INT [v] ***************************** */
+
+bool ScalarConverter::isInt(const string &lit) {
+    size_t i = 0;
+    if (lit[0] == '+' || lit[0] == '-') i++;
+
+    for (; i < lit.length(); i++)
+        if (!isdigit(lit[i])) return false;
+    return true;
+}
+
+/* ***************************** [^] IS INT [^] ***************************** */
+
+/* **************************** [v] IS FLOAT [v] **************************** */
+
+bool ScalarConverter::isFloat(const string &lit) {
+    size_t i = 0;
+
+    if (lit[0] == '+' || lit[0] == '-') i++;
+
+    for (; i < lit.length(); i++) {
+        if (!isdigit(lit[i]) && lit[i] == '.') {
+            i++;
+            while (isdigit(lit[i])) i++;
+            if (lit[i] == 'f' && lit[i + 1] == lit[lit.length()]) return true;
+        }
+    }
+    return false;
+}
+
+/* **************************** [^] IS FLOAT [^] **************************** */
+
+/* *************************** [v] IS DOUBLE [v] *************************** */
+
+bool ScalarConverter::isDouble(const string &lit) {
+    size_t i = 0;
+
+    if (lit[0] == '+' || lit[0] == '-') i++;
+
+    for (; i < lit.length(); i++) {
+        if (!isdigit(lit[i]) && lit[i] == '.') {
+            i++;
+            while (isdigit(lit[i])) i++;
+            if (lit[i] == lit[lit.length()]) return true;
+        }
+    }
+    return false;
+}
+
+/* *************************** [^] IS DOUBLE [^] *************************** */
+
+/* *********************** [v] IS PSEUDO LITERALS [v] *********************** */
+
+bool ScalarConverter::isPseudoLiterals(const string &lit) {
+    string arr[] = {"-inf", "-inff", "+inf", "+inff", "inf",   "inff",
+                    "nan",  "+nan",  "-nan", "+nanf", "-nanf", "nanf"};
+
+    size_t arrSize = sizeof(arr) / sizeof(arr[0]);
+
+    for (size_t i = 0; i < arrSize; i++)
+        if (!lit.compare(arr[i])) return true;
+    return false;
+}
+
+/* *********************** [^] IS PSEUDO LITERALS [^] *********************** */
+
+/* *************************** [v] FIND TYPE [v] *************************** */
 
 eType ScalarConverter::findType(const string lit) {
     if (isChar(lit))
@@ -31,4 +108,4 @@ eType ScalarConverter::findType(const string lit) {
         return ERROR;
 }
 
-/* *************************** [v] FIND TYPE [v] *************************** */
+/* *************************** [^] FIND TYPE [^] *************************** */
