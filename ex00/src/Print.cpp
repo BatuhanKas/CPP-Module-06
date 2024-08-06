@@ -6,7 +6,7 @@
 /*   By: bkas <bkas@student.42kocaeli.com.tr>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/03 17:16:02 by bkas              #+#    #+#             */
-/*   Updated: 2024/08/06 12:05:11 by bkas             ###   ########.fr       */
+/*   Updated: 2024/08/06 12:35:41 by bkas             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,7 +64,7 @@ void ScalarConverter::printFloat(eType type, float f, string lit) {
     cout << "float: ";
 
     double d = atof(lit.c_str());
-    if (type != SCIENCE && d >= -DBL_MAX && d <= DBL_MAX)
+    if (type != SCIENCE && d >= -FLT_MAX && d <= FLT_MAX)
         if (d >= INT_MIN && d <= INT_MAX) {
             cout << fixed << setprecision(1) << f << "f" << endl;
         } else {
