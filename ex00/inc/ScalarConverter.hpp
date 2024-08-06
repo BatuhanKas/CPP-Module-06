@@ -6,7 +6,7 @@
 /*   By: bkas <bkas@student.42kocaeli.com.tr>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/31 12:22:35 by bkas              #+#    #+#             */
-/*   Updated: 2024/08/06 11:22:12 by bkas             ###   ########.fr       */
+/*   Updated: 2024/08/06 15:29:59 by bkas             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,7 +38,7 @@ using std::string;
 
 /* ************************ [v] TYPE ENUMERATION [v] ************************ */
 
-enum eType { CHAR, INT, FLOAT, DOUBLE, SCIENCE, ERROR };
+enum eType { CHAR, INT, FLOAT, DOUBLE, PSEUDOLITERALS, ERROR };
 
 /* ************************ [^] TYPE ENUMERATION [^] ************************ */
 
@@ -55,37 +55,39 @@ class ScalarConverter {
 
     // lit means literal
 
-    /* ********* [v] Find Type [v] ********* */
+    /* *************** [v] Find Type [v] *************** */
     static eType findType(const string lit);
-    /* ********* [^] Find Type [^] ********* */
+    /* *************** [^] Find Type [^] *************** */
 
-    /* ****** [v] Casting to Types [v] ****** */
-    static void castChar(eType type, const string lit);
-    static void castInt(eType type, const string lit);
-    static void castFloat(eType type, const string lit);
-    static void castDouble(eType type, const string lit);
-    /* ****** [^] Casting to Types [^] ****** */
-
-    /* ********* [v] Types [v] ********* */
+    /* ***************** [v] Types [v] ***************** */
     static bool isChar(const string &lit);
     static bool isInt(const string &lit);
     static bool isFloat(const string &lit);
     static bool isDouble(const string &lit);
-    /* ********* [^] Types [^] ********* */
+    static bool isPseudoLiterals(const string &lit);
+    /* ***************** [^] Types [^] ***************** */
 
-    /* ******** [v] Print Types [v] ******** */
+    /* ************ [v] Casting to Types [v] ************ */
+    static void castChar(eType type, const string lit);
+    static void castInt(eType type, const string lit);
+    static void castFloat(eType type, const string lit);
+    static void castDouble(eType type, const string lit);
+    /* ************ [^] Casting to Types [^] ************ */
+
+    /* ********************* [v] Print Types [v] ********************* */
     static void printTypes(eType type, char c, int i, float f, double d,
                            string lit);
     static void printChar(eType type, char c, string lit);
     static void printInt(eType type, int i, string lit);
     static void printFloat(eType type, float f, string lit);
     static void printDouble(eType type, double d, string lit);
-    /* ******** [^] Print Types [^] ******** */
+    static void printPseudoLiterals(eType type, string lit);
+    /* ********************* [^] Print Types [^] ********************* */
 
    public:
-    /* **** [v] Convert Function [v] **** */
+    /* ************* [v] Convert Function [v] ************* */
     static void convert(const string &lit);
-    /* **** [^] Convert Function [^] **** */
+    /* ************* [^] Convert Function [^] ************* */
 };
 
 /* ********************* [^] SCALAR CONVERTER CLASS [^] ********************* */

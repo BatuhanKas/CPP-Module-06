@@ -6,7 +6,7 @@
 /*   By: bkas <bkas@student.42kocaeli.com.tr>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/31 12:25:16 by bkas              #+#    #+#             */
-/*   Updated: 2024/08/06 11:22:05 by bkas             ###   ########.fr       */
+/*   Updated: 2024/08/06 15:52:43 by bkas             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -77,6 +77,17 @@ bool ScalarConverter::isDouble(const string &lit) {
     return false;
 }
 
+bool ScalarConverter::isPseudoLiterals(const string &lit) {
+    string arr[] = {"-inf", "-inff", "+inf", "+inff", "inf",   "inff",
+                    "nan",  "+nan",  "-nan", "+nanf", "-nanf", "nanf"};
+
+    size_t arrSize = sizeof(arr) / sizeof(arr[0]);
+
+    for (size_t i = 0; i < arrSize; i++)
+        if (!lit.compare(arr[i])) return true;
+    return false;
+}
+
 /* *************************** [^] FIND TYPE [^] *************************** */
 
 /* *********************** [v] CASTING TO TYPES [v] ************************ */
@@ -131,6 +142,9 @@ void ScalarConverter::convert(const string &lit) {
             castFloat(type, lit);
             break;
         case DOUBLE:
+            castDouble(type, lit);
+            break;
+        case PSEUDOLITERALS:
             castDouble(type, lit);
             break;
         default:

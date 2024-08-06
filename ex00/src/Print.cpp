@@ -6,7 +6,7 @@
 /*   By: bkas <bkas@student.42kocaeli.com.tr>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/03 17:16:02 by bkas              #+#    #+#             */
-/*   Updated: 2024/08/06 12:35:41 by bkas             ###   ########.fr       */
+/*   Updated: 2024/08/06 16:03:21 by bkas             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,7 +34,7 @@ void ScalarConverter::printChar(eType type, char c, string lit) {
     cout << "char: ";
 
     int i = atoi(lit.c_str());
-    if (type == SCIENCE || i <= 0 || i > CHAR_MAX) {
+    if (type == PSEUDOLITERALS || i < 0 || i > CHAR_MAX) {
         cout << "impossible" << endl;
         return;
     }
@@ -50,7 +50,7 @@ void ScalarConverter::printInt(eType type, int i, string lit) {
     cout << "int: ";
 
     double d = atof(lit.c_str());
-    if (type != SCIENCE && (d >= INT_MIN && d <= INT_MAX))
+    if (type != PSEUDOLITERALS && (d >= INT_MIN && d <= INT_MAX))
         cout << i << endl;
     else
         cout << "impossible" << endl;
@@ -63,8 +63,13 @@ void ScalarConverter::printInt(eType type, int i, string lit) {
 void ScalarConverter::printFloat(eType type, float f, string lit) {
     cout << "float: ";
 
+    if (type == PSEUDOLITERALS) {
+        printPseudoLiterals(FLOAT, lit);
+        return;
+    }
+
     double d = atof(lit.c_str());
-    if (type != SCIENCE && d >= -FLT_MAX && d <= FLT_MAX)
+    if (type != PSEUDOLITERALS && d >= -FLT_MAX && d <= FLT_MAX)
         if (d >= INT_MIN && d <= INT_MAX) {
             cout << fixed << setprecision(1) << f << "f" << endl;
         } else {
@@ -81,8 +86,14 @@ void ScalarConverter::printFloat(eType type, float f, string lit) {
 
 void ScalarConverter::printDouble(eType type, double d, string lit) {
     cout << "double: ";
+
+    if (type == PSEUDOLITERALS) {
+        printPseudoLiterals(DOUBLE, lit);
+        return;
+    }
+
     double dbl = atof(lit.c_str());
-    if (type != SCIENCE && dbl >= -DBL_MAX && dbl <= DBL_MAX)
+    if (type != PSEUDOLITERALS && dbl >= -DBL_MAX && dbl <= DBL_MAX)
         if (dbl >= INT_MIN && dbl <= INT_MAX)
             cout << fixed << setprecision(1) << d << endl;
         else {
@@ -94,3 +105,35 @@ void ScalarConverter::printDouble(eType type, double d, string lit) {
 }
 
 /* ************************** [^] DOUBLE TYPE [^] ************************** */
+
+/* ************************ [v] PSEUDO LITERALS [v] ************************ */
+
+void ScalarConverter::printPseudoLiterals(eType type, string lit) {
+    if (!lit.compare("inf") || !lit.compare("inff")) {
+        cout << "inf";
+        if (type == FLOAT) cout << "f";
+        cout << endl;
+    } else if (!lit.compare("+inf") || !lit.compare("+inff")) {
+        cout << "+inf";
+        if (type == FLOAT) cout << "f";
+        cout << endl;
+    } else if (!lit.compare("-inf") || !lit.compare("-inff")) {
+        cout << "-inf";
+        if (type == FLOAT) cout << "f";
+        cout << endl;
+    } else if (!lit.compare("nan") || !lit.compare("nanf")) {
+        cout << "nan";
+        if (type == FLOAT) cout << "f";
+        cout << endl;
+    } else if (!lit.compare("+nan") || !lit.compare("+nanf")) {
+        cout << "+nan";
+        if (type == FLOAT) cout << "f";
+        cout << endl;
+    } else if (!lit.compare("-nan") || !lit.compare("-nanf")) {
+        cout << "-nan";
+        if (type == FLOAT) cout << "f";
+        cout << endl;
+    }
+}
+
+/* ************************ [^] PSEUDO LITERALS [^] ************************ */
