@@ -6,7 +6,7 @@
 /*   By: bkas <bkas@student.42kocaeli.com.tr>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/03 11:49:50 by bkas              #+#    #+#             */
-/*   Updated: 2024/08/06 16:58:20 by bkas             ###   ########.fr       */
+/*   Updated: 2024/08/07 10:36:42 by bkas             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,14 +42,19 @@ bool ScalarConverter::isInt(const string &lit) {
 
 bool ScalarConverter::isFloat(const string &lit) {
     size_t i = 0;
+    int num_c = 0;
 
     if (lit[0] == '+' || lit[0] == '-') i++;
 
     for (; i < lit.length(); i++) {
         if (!isdigit(lit[i]) && lit[i] == '.') {
             i++;
-            while (isdigit(lit[i])) i++;
-            if (lit[i] == 'f' && lit[i + 1] == lit[lit.length()]) return true;
+            while (isdigit(lit[i])) {
+                i++;
+                num_c++;
+            }
+            if (lit[i] == 'f' && lit[i + 1] == lit[lit.length()] && num_c != 0)
+                return true;
         }
     }
     return false;
@@ -61,14 +66,18 @@ bool ScalarConverter::isFloat(const string &lit) {
 
 bool ScalarConverter::isDouble(const string &lit) {
     size_t i = 0;
+    int num_c = 0;
 
     if (lit[0] == '+' || lit[0] == '-') i++;
 
     for (; i < lit.length(); i++) {
         if (!isdigit(lit[i]) && lit[i] == '.') {
             i++;
-            while (isdigit(lit[i])) i++;
-            if (lit[i] == lit[lit.length()]) return true;
+            while (isdigit(lit[i])) {
+                i++;
+                num_c++;
+            }
+            if (lit[i] == lit[lit.length()] && num_c != 0) return true;
         }
     }
     return false;
