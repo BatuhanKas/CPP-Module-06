@@ -6,7 +6,7 @@
 /*   By: bkas <bkas@student.42kocaeli.com.tr>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/31 12:22:35 by bkas              #+#    #+#             */
-/*   Updated: 2024/08/06 16:58:04 by bkas             ###   ########.fr       */
+/*   Updated: 2024/08/07 10:41:11 by bkas             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,8 +50,6 @@ class ScalarConverter {
     ScalarConverter &operator=(const ScalarConverter &oth);
     ~ScalarConverter();
     /* ************* [^] Orthodox Form [^] ************* */
-
-    // lit means literal
 
     /* *************** [v] Find Type Function [v] *************** */
     static eType findType(const string lit);
