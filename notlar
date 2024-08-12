@@ -1,0 +1,12 @@
+float 7-8 basamak hassasiyete sahip
+double 15-16 basamak hassasiyete sahip
+
+./cast 12312312312312312312312312312312312
+integer gibi yaziliyor fakat cast ederken sikintilar olabiliyor o yuzden tekrar cast ediyorum.
+
+424242424242.0f
+424242424242.000123123123123123
+424242424242......0
+424242424242.0fffffffffffff
+4242424242420fffffffffffff
+
