@@ -1,48 +1,53 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Serializer.hpp                                     :+:      :+:    :+:   */
+/*   Identify.hpp                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: bkas <bkas@student.42kocaeli.com.tr>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/13 01:36:45 by bkas              #+#    #+#             */
-/*   Updated: 2024/08/18 18:15:27 by bkas             ###   ########.fr       */
+/*   Updated: 2024/08/18 19:28:00 by bkas             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 /* **************************** [v] DEFINES [v] **************************** */
 
-#ifndef SERIALIZER_HPP
-#define SERIALIZER_HPP
+#ifndef IDENTIFY_HPP
+#define IDENTIFY_HPP
 
 /* **************************** [^] DEFINES [^] **************************** */
 
 /* *************************** [v] INCLUDES [v] *************************** */
 
-struct Data;
+#include <sys/time.h>
 
-#include <stdint.h>
+#include <iostream>
+#include <stdlib.h>
+
+using std::cout;
+using std::endl;
 
 /* *************************** [^] INCLUDES [^] *************************** */
 
-/* *********************** [v] SERIALIZER CLASS [v] *********************** */
+/* ************************** [v] BASE CLASS [v] ************************** */
 
-class Serializer {
-   private:
-    /* ************* [v] Orthodox Form [v] ************* */
-    Serializer();
-    Serializer(const Serializer &oth);
-    Serializer &operator=(const Serializer &oth);
-    ~Serializer();
-    /* ************* [^] Orthodox Form [^] ************* */
-
+class Identify {
    public:
-    /* ******* [v] Serialize && Deserialize [v] ******* */
-    static uintptr_t serialize(Data *ptr);
-    static Data *deserialize(uintptr_t raw);
-    /* ******* [^] Serialize && Deserialize [^] ******* */
+    ~Identify();
 };
 
-/* *********************** [^] SERIALIZER CLASS [^] *********************** */
+/* ************************** [^] BASE CLASS [^] ************************** */
+
+/* *********************** [v] DERIVED CLASSES [v] *********************** */
+
+class A : public Identify {};
+
+class B : public Identify {};
+
+class C : public Identify {};
+
+/* *********************** [^] DERIVED CLASSES [^] *********************** */
+
+// Base* generate(void);
 
 #endif

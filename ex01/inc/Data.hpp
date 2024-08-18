@@ -6,7 +6,7 @@
 /*   By: bkas <bkas@student.42kocaeli.com.tr>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/31 12:22:35 by bkas              #+#    #+#             */
-/*   Updated: 2024/08/13 02:42:29 by bkas             ###   ########.fr       */
+/*   Updated: 2024/08/18 18:15:25 by bkas             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,8 @@
 /* **************************** [^] DEFINES [^] **************************** */
 
 /* **************************** [v] INCLUDES [v] **************************** */
+
+#include <stdint.h>
 
 #include <iostream>
 #include <string>
@@ -31,7 +33,7 @@ using std::string;
 
 /* ********************* [v] SCALAR CONVERTER CLASS [v] ********************* */
 
-class Data {
+struct Data {
    private:
     /* **** [v] uintptr_t value [v] **** */
     uintptr_t _value;

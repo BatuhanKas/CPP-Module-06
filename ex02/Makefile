@@ -6,15 +6,15 @@
 #    By: bkas <bkas@student.42kocaeli.com.tr>       +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/05/10 16:55:08 by bkas              #+#    #+#              #
-#    Updated: 2024/08/18 16:43:34 by bkas             ###   ########.fr        #
+#    Updated: 2024/08/18 19:11:15 by bkas             ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-NAME        = serializer
+NAME        = identify
 
-PROJECTNAME = Serializer
+PROJECTNAME = Identify
 
-SRC         = main.cpp Data.cpp Serializer.cpp
+SRC         = main.cpp
 
 SRCDIR      = ./src/
 

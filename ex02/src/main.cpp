@@ -6,34 +6,23 @@
 /*   By: bkas <bkas@student.42kocaeli.com.tr>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/08 10:29:12 by bkas              #+#    #+#             */
-/*   Updated: 2024/08/18 18:26:38 by bkas             ###   ########.fr       */
+/*   Updated: 2024/08/18 19:56:20 by bkas             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 /* **************************** [v] INCLUDES [v] **************************** */
 
-#include "../inc/Data.hpp"
-#include "../inc/Serializer.hpp"
+#include "../inc/Identify.hpp"
 
 /* **************************** [^] INCLUDES [^] **************************** */
 
 /* ****************************** [v] MAIN [v] ****************************** */
 
 int main() {
-    Data *ptr = new Data(10);
-    cout << "----------------------------------" << endl;
-    cout << "Default adress: " << ptr << endl;
-    cout << "----------------------------------" << endl;
+    srand(getMs());
 
-    uintptr_t a = Serializer::serialize(ptr);
-    cout << "Serialized value: " << a << endl;
-    cout << "----------------------------------" << endl;
-
-    ptr = Serializer::deserialize(a);
-    cout << "Deserialized adress: " << ptr << endl;
-    cout << "----------------------------------" << endl;
-
-    delete ptr;
+    int random = rand();
+    cout << random << endl;
 }
 
 /* ****************************** [^] MAIN [^] ****************************** */

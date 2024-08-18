@@ -62,6 +62,7 @@
         "typeinfo": "cpp",
         "unordered_map": "cpp",
         "vector": "cpp",
-        "cfloat": "cpp"
+        "cfloat": "cpp",
+        "compare": "cpp"
     }
 }

@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Serializer.cpp                                     :+:      :+:    :+:   */
+/*   Identify.cpp                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: bkas <bkas@student.42kocaeli.com.tr>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/13 02:30:59 by bkas              #+#    #+#             */
-/*   Updated: 2024/08/18 18:15:34 by bkas             ###   ########.fr       */
+/*   Updated: 2024/08/18 19:56:00 by bkas             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,29 +16,28 @@
 
 /* **************************** [^] INCLUDES [^] **************************** */
 
-/* ************************* [v] ORTHODOX FORM [v] ************************* */
+/* *********************** [v] VIRTUAL DESTRUCTOR [v] *********************** */
 
-Serializer::Serializer() {}
+Identify::~Identify() {}
 
-Serializer::Serializer(const Serializer &oth) { *this = oth; }
+/* *********************** [^] VIRTUAL DESTRUCTOR [^] *********************** */
 
-Serializer &Serializer::operator=(const Serializer &oth) {
-    (void)oth;
-    return *this;
+Base *generate(void) {
+    // time_t current_time = time(NULL);
+    // srand(current_time);
+
+    // int random = rand();
+    // cout << random << endl;
 }
 
-Serializer::~Serializer() {}
+unsigned long getMs() {
+    /*
+        1 second = 1000 milisecond.
+        1 microsecond = 0.001 milisecond.
 
-/* ************************* [^] ORTHODOX FORM [^] ************************* */
-
-/* ******************* [v] SERIALIZE && DESERIALIZE [v] ******************* */
-
-uintptr_t Serializer::serialize(Data *ptr) {
-    return reinterpret_cast<uintptr_t>(ptr);
+        changing both of them miliseconds.
+    */
+    struct timeval tv;
+    gettimeofday(&tv, NULL);
+    return tv.tv_sec * 1000 + tv.tv_usec / 1000;
 }
-
-Data *Serializer::deserialize(uintptr_t raw) {
-    return reinterpret_cast<Data *>(raw);
-}
-
-/* ******************* [^] SERIALIZE && DESERIALIZE [^] ******************* */
