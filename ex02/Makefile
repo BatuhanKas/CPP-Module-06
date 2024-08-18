@@ -6,7 +6,7 @@
 #    By: bkas <bkas@student.42kocaeli.com.tr>       +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/05/10 16:55:08 by bkas              #+#    #+#              #
-#    Updated: 2024/08/18 19:11:15 by bkas             ###   ########.fr        #
+#    Updated: 2024/08/18 20:26:54 by bkas             ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -14,7 +14,7 @@ NAME        = identify
 
 PROJECTNAME = Identify
 
-SRC         = main.cpp
+SRC         = main.cpp Identify.cpp
 
 SRCDIR      = ./src/
 

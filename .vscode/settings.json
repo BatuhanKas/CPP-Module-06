@@ -63,6 +63,7 @@
         "unordered_map": "cpp",
         "vector": "cpp",
         "cfloat": "cpp",
-        "compare": "cpp"
+        "compare": "cpp",
+        "*.tcc": "cpp"
     }
 }

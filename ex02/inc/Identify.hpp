@@ -6,7 +6,7 @@
 /*   By: bkas <bkas@student.42kocaeli.com.tr>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/13 01:36:45 by bkas              #+#    #+#             */
-/*   Updated: 2024/08/18 19:28:00 by bkas             ###   ########.fr       */
+/*   Updated: 2024/08/18 21:42:48 by bkas             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,35 +19,41 @@
 
 /* *************************** [v] INCLUDES [v] *************************** */
 
+#include <stdlib.h>
 #include <sys/time.h>
 
 #include <iostream>
-#include <stdlib.h>
+#include <typeinfo>
 
 using std::cout;
 using std::endl;
+using std::string;
 
 /* *************************** [^] INCLUDES [^] *************************** */
 
 /* ************************** [v] BASE CLASS [v] ************************** */
 
-class Identify {
+class Base {
    public:
-    ~Identify();
+    virtual ~Base();
 };
 
 /* ************************** [^] BASE CLASS [^] ************************** */
 
 /* *********************** [v] DERIVED CLASSES [v] *********************** */
 
-class A : public Identify {};
+class A : public Base {};
 
-class B : public Identify {};
+class B : public Base {};
 
-class C : public Identify {};
+class C : public Base {};
 
 /* *********************** [^] DERIVED CLASSES [^] *********************** */
 
-// Base* generate(void);
+Base* generate(void);
+
+void identify(Base* p);
+
+// void identify(Base& p);
 
 #endif
