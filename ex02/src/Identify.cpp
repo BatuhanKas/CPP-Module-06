@@ -6,7 +6,7 @@
 /*   By: bkas <bkas@student.42kocaeli.com.tr>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/13 02:30:59 by bkas              #+#    #+#             */
-/*   Updated: 2024/09/09 16:18:49 by bkas             ###   ########.fr       */
+/*   Updated: 2024/09/09 16:25:35 by bkas             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,6 +22,8 @@ Base::~Base() {}
 
 /* *********************** [^] VIRTUAL DESTRUCTOR [^] *********************** */
 
+/* ************************* [v] GET MILISECOND [v] ************************* */
+
 static unsigned long getMs() { /*
     1 second = 1000 milisecond.
     1 microsecond = 0.001 milisecond.
@@ -31,6 +33,10 @@ static unsigned long getMs() { /*
     gettimeofday(&tv, NULL);
     return (tv.tv_sec * 1000 + tv.tv_usec / 1000);
 }
+
+/* ************************* [^] GET MILISECOND [^] ************************* */
+
+/* **************************** [v] GENERATE [v] **************************** */
 
 Base* generate(void) {
     system("sleep 0.2");
@@ -51,6 +57,10 @@ Base* generate(void) {
     }
 }
 
+/* **************************** [^] GENERATE [^] **************************** */
+
+/* ************************** [v] IDENTIFY PTR [v] ************************** */
+
 void identify(Base* p) {
     if (dynamic_cast<A*>(p))
         cout << "Pointer: Object Type is: A" << endl;
@@ -61,6 +71,10 @@ void identify(Base* p) {
     else
         cout << "Wrong Object Type!" << endl;
 }
+
+/* ************************** [^] IDENTIFY PTR [^] ************************** */
+
+/* *********************** [v] IDENTIFY REFERENCE [v] *********************** */
 
 void identify(Base& p) {
     try {
@@ -83,3 +97,5 @@ void identify(Base& p) {
         }
     }
 }
+
+/* *********************** [^] IDENTIFY REFERENCE [^] *********************** */
