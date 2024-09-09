@@ -6,7 +6,7 @@
 /*   By: bkas <bkas@student.42kocaeli.com.tr>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/08 10:29:12 by bkas              #+#    #+#             */
-/*   Updated: 2024/09/09 16:23:43 by bkas             ###   ########.fr       */
+/*   Updated: 2024/09/09 17:00:57 by bkas             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,20 +22,8 @@ int main() {
     /* ********** [v] DYNAMIC CAST [v] ********** */
     try {
         Base *b1 = generate();
-        if (!b1) return 0;
-
         Base *b2 = generate();
-        if (!b2) {
-            delete b1;
-            return 0;
-        }
-
         Base *b3 = generate();
-        if (!b3) {
-            delete b1;
-            delete b2;
-            return 0;
-        }
 
         identify(b1);
         identify(b2);
@@ -49,6 +37,8 @@ int main() {
         delete b2;
         delete b3;
     } catch (exception &e) {
+        if (b1) delete b1;
+        if (b2) delete b2;
         cout << e.what() << endl;
     }
     /* ********** [^] DYNAMIC CAST [^] ********** */
