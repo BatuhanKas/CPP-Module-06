@@ -6,7 +6,7 @@
 /*   By: bkas <bkas@student.42kocaeli.com.tr>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/13 02:30:59 by bkas              #+#    #+#             */
-/*   Updated: 2024/08/18 21:42:45 by bkas             ###   ########.fr       */
+/*   Updated: 2024/09/09 16:18:49 by bkas             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,10 +29,11 @@ static unsigned long getMs() { /*
     changing both of them miliseconds. */
     struct timeval tv;
     gettimeofday(&tv, NULL);
-    return tv.tv_sec * 1000 + tv.tv_usec / 1000;
+    return (tv.tv_sec * 1000 + tv.tv_usec / 1000);
 }
 
 Base* generate(void) {
+    system("sleep 0.2");
     srand(getMs());
 
     int random = rand() % 3;
@@ -40,29 +41,45 @@ Base* generate(void) {
     switch (random) {
         case 0:
             return new A;
-            break;
         case 1:
             return new B;
-            break;
         case 2:
             return new C;
-            break;
         default:
             cout << "Impossible." << endl;
-            break;
+            return NULL;
     }
-    return 0;
 }
 
 void identify(Base* p) {
-    if (p) {
-        int i = 0;
-        string name = typeid(*p).name();
-        while (isdigit(name[i])) i++;
-        cout << &name[i] << endl;
-    }
+    if (dynamic_cast<A*>(p))
+        cout << "Pointer: Object Type is: A" << endl;
+    else if (dynamic_cast<B*>(p))
+        cout << "Pointer: Object Type is: B" << endl;
+    else if (dynamic_cast<C*>(p))
+        cout << "Pointer: Object Type is: C" << endl;
+    else
+        cout << "Wrong Object Type!" << endl;
 }
 
-// void identify(Base& p) {
-    
-// }
+void identify(Base& p) {
+    try {
+        A& a = dynamic_cast<A&>(p);
+        (void)a;
+        cout << "Ref: Object Type is: A" << endl;
+    } catch (exception& e) {
+        try {
+            B& b = dynamic_cast<B&>(p);
+            (void)b;
+            cout << "Ref: Object Type is: B" << endl;
+        } catch (exception& e) {
+            try {
+                C& c = dynamic_cast<C&>(p);
+                (void)c;
+                cout << "Ref: Object Type is: C" << endl;
+            } catch (exception& e) {
+                cout << "Wrong Object Type!" << endl;
+            }
+        }
+    }
+}

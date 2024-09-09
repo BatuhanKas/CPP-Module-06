@@ -6,7 +6,7 @@
 /*   By: bkas <bkas@student.42kocaeli.com.tr>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/18 15:39:22 by bkas              #+#    #+#             */
-/*   Updated: 2024/08/18 18:13:40 by bkas             ###   ########.fr       */
+/*   Updated: 2024/09/09 16:13:34 by bkas             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,21 +15,47 @@
 
 using namespace std;
 
-template <typename T>
-T* xor_ptrs(T* t1, T* t2) {
-    return reinterpret_cast<T*>(reinterpret_cast<uintptr_t>(t1) ^
-                                reinterpret_cast<uintptr_t>(t2));
-}
+// class Base {
+//    public:
+//     virtual ~Base(){};
+// };
 
-int main(int argc, char const* argv[]) {
-    int x = 9;
-    int y = 10;
+// class A : public Base {};
 
-    // cout << &x << endl;
-    int* xyz = &x;
-    // uintptr_t val = reinterpret_cast<uintptr_t>(*xyz);
-    uintptr_t val = (uintptr_t)x;
-    cout << val << endl;
-    int* a = reinterpret_cast<int*>(val);
-    // cout << a << endl;
-}
+// class B : public Base {};
+
+// class C : public Base {};
+
+// int main() {
+//     // Base *base = new Base();
+
+//     // Base *base2 = dynamic_cast<A *>(base);
+
+//     int x = 10;
+
+//     int *ptr = &x;
+
+//     int &y = *ptr;
+
+//     cout << y << endl;
+// }
+
+
+// #include <sys/time.h>
+// #include <iostream>
+
+// void printCurrentTime() {
+//     struct timeval tv;
+//     gettimeofday(&tv, NULL);
+    
+//     // Saniye cinsinden zaman
+//     std::cout << "Seconds: " << tv.tv_sec << std::endl;
+    
+//     // Mikrodetay cinsinden zaman
+//     std::cout << "Microseconds: " << tv.tv_usec << std::endl;
+// }
+
+// int main() {
+//     printCurrentTime();
+//     return 0;
+// }

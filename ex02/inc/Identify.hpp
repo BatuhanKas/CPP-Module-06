@@ -6,7 +6,7 @@
 /*   By: bkas <bkas@student.42kocaeli.com.tr>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/13 01:36:45 by bkas              #+#    #+#             */
-/*   Updated: 2024/08/18 21:42:48 by bkas             ###   ########.fr       */
+/*   Updated: 2024/09/09 15:10:49 by bkas             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,11 +23,11 @@
 #include <sys/time.h>
 
 #include <iostream>
-#include <typeinfo>
 
 using std::cout;
 using std::endl;
 using std::string;
+using std::exception;
 
 /* *************************** [^] INCLUDES [^] *************************** */
 
@@ -54,6 +54,6 @@ Base* generate(void);
 
 void identify(Base* p);
 
-// void identify(Base& p);
+void identify(Base& p);
 
 #endif
