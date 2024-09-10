@@ -21,6 +21,7 @@
         "tuple": "cpp",
         "utility": "cpp",
         "stdexcept": "cpp",
-        "cstdlib": "cpp"
+        "cstdlib": "cpp",
+        "ostream": "cpp"
     }
 }

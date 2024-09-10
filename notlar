@@ -17,3 +17,6 @@ fixed manipülatörü, kayan noktalı sayıları bilimsel gösterim (scientific)
 setprecision
 setprecision(n) manipülatörü, ondalık basamakların sayısını ayarlar. Parantez içindeki n değeri, kaç ondalık basamak görmek istediğinizi belirtir.
 setprecision(1) dendiğinde, sayı sadece bir ondalık basamak ile gösterilir (örneğin: 12.3).
+
+
+bütün her yere bak try catch kullanman gereken yerlerde kullan.
