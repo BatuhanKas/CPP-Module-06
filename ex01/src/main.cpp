@@ -6,7 +6,7 @@
 /*   By: bkas <bkas@student.42kocaeli.com.tr>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/08 10:29:12 by bkas              #+#    #+#             */
-/*   Updated: 2024/08/18 18:26:38 by bkas             ###   ########.fr       */
+/*   Updated: 2024/09/10 19:15:53 by bkas             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,20 +20,24 @@
 /* ****************************** [v] MAIN [v] ****************************** */
 
 int main() {
-    Data *ptr = new Data(10);
-    cout << "----------------------------------" << endl;
-    cout << "Default adress: " << ptr << endl;
-    cout << "----------------------------------" << endl;
+    try {
+        Data *ptr = new Data(10);
+        cout << "----------------------------------" << endl;
+        cout << "Default adress: " << ptr << endl;
+        cout << "----------------------------------" << endl;
 
-    uintptr_t a = Serializer::serialize(ptr);
-    cout << "Serialized value: " << a << endl;
-    cout << "----------------------------------" << endl;
+        uintptr_t a = Serializer::serialize(ptr);
+        cout << "Serialized value: " << a << endl;
+        cout << "----------------------------------" << endl;
 
-    ptr = Serializer::deserialize(a);
-    cout << "Deserialized adress: " << ptr << endl;
-    cout << "----------------------------------" << endl;
+        ptr = Serializer::deserialize(a);
+        cout << "Deserialized adress: " << ptr << endl;
+        cout << "----------------------------------" << endl;
 
-    delete ptr;
+        delete ptr;
+    } catch (exception &e) {
+        std::cerr << "Memory Allocation Failed: " << e.what() << endl;
+    }
 }
 
 /* ****************************** [^] MAIN [^] ****************************** */
