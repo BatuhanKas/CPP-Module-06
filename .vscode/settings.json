@@ -22,6 +22,9 @@
         "utility": "cpp",
         "stdexcept": "cpp",
         "cstdlib": "cpp",
-        "ostream": "cpp"
+        "ostream": "cpp",
+        "ios": "cpp",
+        "__string": "cpp",
+        "string_view": "cpp"
     }
 }

@@ -6,7 +6,7 @@
 /*   By: bkas <bkas@student.42kocaeli.com.tr>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/31 12:22:35 by bkas              #+#    #+#             */
-/*   Updated: 2024/08/18 15:28:52 by bkas             ###   ########.fr       */
+/*   Updated: 2024/09/12 18:18:20 by bkas             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,6 +36,15 @@ using std::setprecision;
 using std::string;
 
 /* **************************** [^] INCLUDES [^] **************************** */
+
+/* **************************** [v] DEFINES [v] **************************** */
+
+#define CHARRANGE(c) ((c < 0 || c > CHAR_MAX) ? 1 : 0)
+#define INTRANGE(i) ((i >= INT_MIN && i <= INT_MAX) ? 1 : 0)
+#define FLTRANGE(f) ((f >= -FLT_MAX && f <= FLT_MAX) ? 1 : 0)
+#define DBLRANGE(d) ((d >= -DBL_MAX && d <= DBL_MAX) ? 1 : 0)
+
+/* **************************** [^] DEFINES [^] **************************** */
 
 /* ************************ [v] TYPE ENUMERATION [v] ************************ */
 

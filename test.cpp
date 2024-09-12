@@ -6,7 +6,7 @@
 /*   By: bkas <bkas@student.42kocaeli.com.tr>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/18 15:39:22 by bkas              #+#    #+#             */
-/*   Updated: 2024/09/10 18:59:57 by bkas             ###   ########.fr       */
+/*   Updated: 2024/09/12 17:02:54 by bkas             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -98,4 +98,11 @@ int main() {
     cout << "ss; " << ss << endl;
 
     /* ******* [^] reinterpret cast [^] ******* */
+
+    {
+        char m;
+        int a2 = 97;
+        m = static_cast<char>(a2);
+        cout << m << endl;
+    }
 }

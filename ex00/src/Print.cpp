@@ -6,7 +6,7 @@
 /*   By: bkas <bkas@student.42kocaeli.com.tr>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/03 17:16:02 by bkas              #+#    #+#             */
-/*   Updated: 2024/09/10 13:44:40 by bkas             ###   ########.fr       */
+/*   Updated: 2024/09/12 18:18:34 by bkas             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,11 +22,11 @@ void ScalarConverter::printChar(eType type, char c, string lit) {
     cout << "char: ";
 
     int i = atoi(lit.c_str());
-    if (type == PSEUDOLITERALS || i < 0 || i > CHAR_MAX) {
+    if (type == PSEUDOLITERALS || CHARRANGE(i)) {
         cout << "impossible" << endl;
         return;
     }
-    isprint(c) ? cout << "\"" << c << "\"" << endl
+    isprint(c) ? cout << "\'" << c << "\'" << endl
                : cout << "Not displayable" << endl;
 }
 
@@ -38,7 +38,7 @@ void ScalarConverter::printInt(eType type, int i, string lit) {
     cout << "int: ";
 
     double d = atof(lit.c_str());
-    if (type != PSEUDOLITERALS && (d >= INT_MIN && d <= INT_MAX))
+    if (type != PSEUDOLITERALS && INTRANGE(d))
         cout << i << endl;
     else
         cout << "impossible" << endl;
@@ -57,8 +57,8 @@ void ScalarConverter::printFloat(eType type, float f, string lit) {
     }
 
     double d = atof(lit.c_str());
-    if (type != PSEUDOLITERALS && d >= -FLT_MAX && d <= FLT_MAX)
-        if (d >= INT_MIN && d <= INT_MAX) {
+    if (type != PSEUDOLITERALS && FLTRANGE(d))
+        if (INTRANGE(d)) {
             cout << fixed << setprecision(1) << f << "f" << endl;
         } else {
             f = static_cast<float>(d);
@@ -81,8 +81,8 @@ void ScalarConverter::printDouble(eType type, double d, string lit) {
     }
 
     double dbl = atof(lit.c_str());
-    if (type != PSEUDOLITERALS && dbl >= -DBL_MAX && dbl <= DBL_MAX)
-        if (dbl >= INT_MIN && dbl <= INT_MAX)
+    if (type != PSEUDOLITERALS && DBLRANGE(dbl))
+        if (INTRANGE(dbl))
             cout << fixed << setprecision(1) << d << endl;
         else {
             d = static_cast<double>(dbl);
