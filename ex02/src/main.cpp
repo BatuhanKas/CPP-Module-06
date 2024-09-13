@@ -6,7 +6,7 @@
 /*   By: bkas <bkas@student.42kocaeli.com.tr>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/08 10:29:12 by bkas              #+#    #+#             */
-/*   Updated: 2024/09/12 18:20:16 by bkas             ###   ########.fr       */
+/*   Updated: 2024/09/13 10:52:56 by bkas             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,11 +40,11 @@ int main() {
         delete b2;
         delete b3;
     } catch (exception &e) {
+        if (b1) delete b1;
+        if (b2) delete b2;
+        if (b3) delete b3;
         cout << e.what() << endl;
     }
-    // if (b1) delete b1;
-    // if (b2) delete b2;
-    // if (b3) delete b3;
     /* ********** [^] DYNAMIC CAST [^] ********** */
 }
 

@@ -6,7 +6,7 @@
 /*   By: bkas <bkas@student.42kocaeli.com.tr>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/13 02:30:59 by bkas              #+#    #+#             */
-/*   Updated: 2024/09/12 17:23:18 by bkas             ###   ########.fr       */
+/*   Updated: 2024/09/13 11:34:29 by bkas             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,7 +39,7 @@ static unsigned long getMs() { /*
 /* **************************** [v] GENERATE [v] **************************** */
 
 Base* generate(void) {
-    system("sleep 0.2");
+    system("sleep 0.025");
     srand(getMs());
 
     int random = rand() % 3;
@@ -62,11 +62,11 @@ Base* generate(void) {
 /* ************************** [v] IDENTIFY PTR [v] ************************** */
 
 void identify(Base* p) {
-    if (dynamic_cast<A*>(p))
+    if (castToDynamic(p, A))
         cout << "Pointer: Object Type is: A" << endl;
-    else if (dynamic_cast<B*>(p))
+    else if (castToDynamic(p, B))
         cout << "Pointer: Object Type is: B" << endl;
-    else if (dynamic_cast<C*>(p))
+    else if (castToDynamic(p, C))
         cout << "Pointer: Object Type is: C" << endl;
     else
         cout << "Wrong Object Type!" << endl;

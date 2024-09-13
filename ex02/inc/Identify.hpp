@@ -6,7 +6,7 @@
 /*   By: bkas <bkas@student.42kocaeli.com.tr>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/13 01:36:45 by bkas              #+#    #+#             */
-/*   Updated: 2024/09/09 15:10:49 by bkas             ###   ########.fr       */
+/*   Updated: 2024/09/13 11:35:24 by bkas             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,10 +26,16 @@
 
 using std::cout;
 using std::endl;
-using std::string;
 using std::exception;
+using std::string;
 
 /* *************************** [^] INCLUDES [^] *************************** */
+
+/* **************************** [v] DEFINES [v] **************************** */
+
+#define castToDynamic(p, Type) ((dynamic_cast<Type*>(p)) ? (true) : (false))
+
+/* **************************** [^] DEFINES [^] **************************** */
 
 /* ************************** [v] BASE CLASS [v] ************************** */
 
@@ -43,17 +49,18 @@ class Base {
 /* *********************** [v] DERIVED CLASSES [v] *********************** */
 
 class A : public Base {};
-
 class B : public Base {};
-
 class C : public Base {};
 
 /* *********************** [^] DERIVED CLASSES [^] *********************** */
 
+/* ************************** [v] FUNCTIONS [v] ************************** */
+
 Base* generate(void);
 
 void identify(Base* p);
-
 void identify(Base& p);
+
+/* ************************** [^] FUNCTIONS [^] ************************** */
 
 #endif
