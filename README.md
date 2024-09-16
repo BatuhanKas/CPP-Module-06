@@ -17,10 +17,8 @@ Bir integer*'i bir double*'a da donusturemezsin, çünkü artik isin icerisinde 
 
 Syntax'i aşağıdaki gibidir.
 
-|                |                          |                         |
-|----------------|-------------------------------|-----------------------------|
-|          |`static_cast <type-id> ( expression )`||
-
+|`static_cast <type-id> ( expression )`|
+|--------------------------------------|
 
 -   **Bellek adresleri ve işaretçiler** ile çalışırken, işaretçileri farklı türler arasında dönüştürmeniz gerektiğinde **`reinterpret_cast`** kullanmanız gerekir.
 - **Değerleri** (yani işaretçi olmayan basit türler) dönüştürürken ise **`static_cast`** kullanabilirsiniz. `static_cast`, **değerler** arasında anlamlı dönüşümler yapar. Örneğin, `float` gibi bir değeri `int` gibi başka bir değere dönüştürebiliriz çünkü bu dönüşüm anlamlıdır (ondalık kısmı kesilir).
