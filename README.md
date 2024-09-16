@@ -20,7 +20,7 @@ Syntax'i aşağıdaki gibidir.
 |                |                          |                         |
 |----------------|-------------------------------|-----------------------------|
 |          |`static_cast <type-id> ( expression )`||
-|
+
 
 -   **Bellek adresleri ve işaretçiler** ile çalışırken, işaretçileri farklı türler arasında dönüştürmeniz gerektiğinde **`reinterpret_cast`** kullanmanız gerekir.
 - **Değerleri** (yani işaretçi olmayan basit türler) dönüştürürken ise **`static_cast`** kullanabilirsiniz. `static_cast`, **değerler** arasında anlamlı dönüşümler yapar. Örneğin, `float` gibi bir değeri `int` gibi başka bir değere dönüştürebiliriz çünkü bu dönüşüm anlamlıdır (ondalık kısmı kesilir).
@@ -61,10 +61,10 @@ Fakat bu istisna sadece void* icin geçerlidir. Diğer bütün işaretçiler ve 
 
 Syntax'i asagidaki gibidir;
 
-|                |                          |                         |
+
 |----------------|-------------------------------|-----------------------------|
 |          |`reinterpret_cast < type-id > ( expression )`||
-|
+
 
 #### Basit bir ornek;
 ```c++
@@ -195,10 +195,10 @@ Temel amacı, bir nesneye **const** olarak erişimi geçici olarak kaldırmak ve
 
 Syntax'i asagidaki gibidir;
 
-|                |                          |                         |
+
 |----------------|-------------------------------|-----------------------------|
 |          |`const_cast <type-id> (expression)`||
-|
+
 
 **Const Pointerlarin, Const Olmayan Pointer'lara Dönüştürülmesi**: Bir `const` pointeri veya referansı, `const_cast` ile const olmayan bir pointera dönüştürebilirsin:
 ```c++
