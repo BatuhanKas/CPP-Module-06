@@ -267,17 +267,17 @@ int main() {
 ---
 ## ***Arastirirken buldugum linkler;***
 
-https://stackoverflow.com/questions/6855686/what-is-the-difference-between-static-cast-and-reinterpret-cast
-https://en.cppreference.com/w/cpp/language/dynamic_cast
-https://learn.microsoft.com/tr-tr/cpp/cpp/static-cast-operator?view=msvc-170
-https://www.geeksforgeeks.org/const_cast-in-c-type-casting-operators/
-https://www.geeksforgeeks.org/reinterpret_cast-in-c-type-casting-operators/
-https://en.cppreference.com/w/cpp/types/integer
-https://www.geeksforgeeks.org/dynamic-_cast-in-cpp/
-https://stackoverflow.com/questions/1276847/difference-in-behavior-while-using-dynamic-cast-with-reference-and-pointers
-https://stackoverflow.com/questions/3649278/how-can-i-get-the-class-name-from-a-c-object
-https://www.digitalocean.com/community/tutorials/random-number-generator-c-plus-plus
-https://stackoverflow.com/questions/1845482/what-is-the-uintptr-t-data-type
-https://learn.microsoft.com/tr-tr/cpp/cpp/data-type-ranges?view=msvc-170
-https://stackoverflow.com/questions/2684603/how-do-i-initialize-a-float-to-its-max-min-value
-https://www.h-schmidt.net/FloatConverter/IEEE754.html
+[Differences between static cast and reinterpret cast](https://stackoverflow.com/questions/6855686/what-is-the-difference-between-static-cast-and-reinterpret-cast) <br>
+[dynamic cast](https://en.cppreference.com/w/cpp/language/dynamic_cast) <br>
+[static cast](https://learn.microsoft.com/tr-tr/cpp/cpp/static-cast-operator?view=msvc-170) <br>
+[const cast](https://www.geeksforgeeks.org/const_cast-in-c-type-casting-operators/) <br>
+[reinterpret cast](https://www.geeksforgeeks.org/reinterpret_cast-in-c-type-casting-operators/) <br>
+[uintrptr_t](https://en.cppreference.com/w/cpp/types/integer) <br>
+[dynamic cast2](https://www.geeksforgeeks.org/dynamic-_cast-in-cpp/) <br>
+[dynamic cast behaviors](https://stackoverflow.com/questions/1276847/difference-in-behavior-while-using-dynamic-cast-with-reference-and-pointers) <br>
+[how do you get class name from a object](https://stackoverflow.com/questions/3649278/how-can-i-get-the-class-name-from-a-c-object) <br>
+[random number generator](https://www.digitalocean.com/community/tutorials/random-number-generator-c-plus-plus) <br>
+[uintptr_t 2](https://stackoverflow.com/questions/1845482/what-is-the-uintptr-t-data-type) <br>
+[data types](https://learn.microsoft.com/tr-tr/cpp/cpp/data-type-ranges?view=msvc-170) <br>
+[float, double max min value](https://stackoverflow.com/questions/2684603/how-do-i-initialize-a-float-to-its-max-min-value) <br>
+[IEEE754 converter](https://www.h-schmidt.net/FloatConverter/IEEE754.html)
