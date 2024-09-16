@@ -62,8 +62,8 @@ Fakat bu istisna sadece void* icin geçerlidir. Diğer bütün işaretçiler ve 
 Syntax'i asagidaki gibidir;
 
 
-|----------------|-------------------------------|-----------------------------|
-|          |`reinterpret_cast < type-id > ( expression )`||
+|`reinterpret_cast < type-id > ( expression )`|
+|---------------------------------------------|
 
 
 #### Basit bir ornek;
@@ -196,8 +196,8 @@ Temel amacı, bir nesneye **const** olarak erişimi geçici olarak kaldırmak ve
 Syntax'i asagidaki gibidir;
 
 
-|----------------|-------------------------------|-----------------------------|
-|          |`const_cast <type-id> (expression)`||
+|`const_cast <type-id> (expression)`|
+|-----------------------------------|
 
 
 **Const Pointerlarin, Const Olmayan Pointer'lara Dönüştürülmesi**: Bir `const` pointeri veya referansı, `const_cast` ile const olmayan bir pointera dönüştürebilirsin:
