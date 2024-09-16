@@ -5,10 +5,10 @@ Bu projenin amaci size bütün casting tiplerini öğretmektir.
 
 Toplamda 4 adet Casting Tipleri vardır. Bunlar asagidadir;
 
-1- Static Cast
-2- Reinterpret Cast
-3- Dynamic Cast
-4- Const Cast
+1- Static Cast <br>
+2- Reinterpret Cast <br>
+3- Dynamic Cast <br>
+4- Const Cast <br>
 **Ekstra:** uintptr_t veri tipi
 
 ## 1- Static Cast nedir?
