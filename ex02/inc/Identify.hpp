@@ -6,7 +6,7 @@
 /*   By: bkas <bkas@student.42kocaeli.com.tr>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/13 01:36:45 by bkas              #+#    #+#             */
-/*   Updated: 2024/09/13 11:35:24 by bkas             ###   ########.fr       */
+/*   Updated: 2024/09/16 10:11:20 by bkas             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,6 +34,7 @@ using std::string;
 /* **************************** [v] DEFINES [v] **************************** */
 
 #define castToDynamic(p, Type) ((dynamic_cast<Type*>(p)) ? (true) : (false))
+#define dynamicRef(p, Type) (dynamic_cast<Type&>(p))
 
 /* **************************** [^] DEFINES [^] **************************** */
 

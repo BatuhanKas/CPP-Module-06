@@ -6,7 +6,7 @@
 /*   By: bkas <bkas@student.42kocaeli.com.tr>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/13 02:30:59 by bkas              #+#    #+#             */
-/*   Updated: 2024/09/13 11:34:29 by bkas             ###   ########.fr       */
+/*   Updated: 2024/09/16 10:11:18 by bkas             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -78,17 +78,17 @@ void identify(Base* p) {
 
 void identify(Base& p) {
     try {
-        A& a = dynamic_cast<A&>(p);
+        A& a = dynamicRef(p, A);
         (void)a;
         cout << "Ref: Object Type is: A" << endl;
     } catch (exception& e) {
         try {
-            B& b = dynamic_cast<B&>(p);
+            B& b = dynamicRef(p, B);
             (void)b;
             cout << "Ref: Object Type is: B" << endl;
         } catch (exception& e) {
             try {
-                C& c = dynamic_cast<C&>(p);
+                C& c = dynamicRef(p, C);
                 (void)c;
                 cout << "Ref: Object Type is: C" << endl;
             } catch (exception& e) {
